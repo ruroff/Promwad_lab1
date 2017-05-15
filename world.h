@@ -1,4 +1,4 @@
 
 /* world.h */
-void hello (void);
-void goodbye (void);
+char* hello ();
+char* goodbye ();

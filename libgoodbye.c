@@ -1,8 +1,11 @@
 /* libgoodbye.c */
 #include <stdio.h>
+#include <string.h>
 #include "world.h"
 
-void goodbye (void)
+
+char* goodbye ()
 {
-        printf ("Goodbye World\n");
+        static char gb[20] = "Goodbye World\n";
+        return gb;
 }

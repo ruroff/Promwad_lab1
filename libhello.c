@@ -1,8 +1,11 @@
 /* libhello.c */
 #include <stdio.h>
 #include "world.h"
+#include <string.h>
 
-void hello (void)
+char* hello ()
 {
-        printf ("Hello World\n");
+       
+		static char hello_world[20] = "Hello World\n";
+        return hello_world;
 }
