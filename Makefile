@@ -1,13 +1,13 @@
 # Makefile 
 
-binary: hello.o libgoodbye.a libhello.a
-	gcc -o binary hello.o -L. -lgoodbye -lhello
+binary: hello.o libgoodbye.a libhello.so
+	gcc -o binary hello.o -L. -lgoodbye -lhello -Wl,-rpath,.
 
 hello.o: hello.c
 	gcc -c hello.c
 
-libhello.a: libhello.o
-	ar cr libhello.a libhello.o
+libhello.so: libhello.o
+	gcc -shared -o libhello.so libhello.o
 
 libgoodbye.a: libgoodbye.o
 	ar cr libgoodbye.a libgoodbye.o
@@ -21,11 +21,8 @@ libgoodbye.o: libgoodbye.c
 all: binary
 	
 
-libs: libgoodbye.a libhello.a
+libs: libgoodbye.a libhello.so
 
 
 clean:
 	rm -f *.a *.o *.so binary
-
-
-
